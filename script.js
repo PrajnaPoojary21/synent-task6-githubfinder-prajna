@@ -9,11 +9,17 @@ searchBtn.addEventListener("click", async () => {
     alert("Please enter a GitHub username");
     return;
   }
+  profile.innerHTML = `
+    <h2>Loading...</h2>
+  `;
 
   try {
     const response = await fetch(
       `https://api.github.com/users/${username}`
     );
+    if (!response.ok) {
+      throw new Error("User not found");
+    }
     const data = await response.json();
     profile.innerHTML = `
       <img src="${data.avatar_url}" alt="Profile Picture" width="150">
@@ -24,6 +30,10 @@ searchBtn.addEventListener("click", async () => {
       <p><strong>Repositories:</strong> ${data.public_repos}</p>
     `;
   } catch (error) {
-    console.log("Error:", error);
+
+    profile.innerHTML = `
+      <h2>User Not Found</h2>
+      <p>Please check the username and try again.</p>
+    `;
   }
 });
