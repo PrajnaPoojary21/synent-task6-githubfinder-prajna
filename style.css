@@ -1,0 +1,25 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family:Arial, sans-serif;
+  background:#bc91bc;
+  color:rgb(22, 11, 102);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.container{
+  text-align:center;
+}
+h1{
+  font-size:3rem;
+  margin-bottom:15px;
+}
+.subtitle{
+  color:rgb(22, 11, 102);
+  font-size:1.1rem;
+}
